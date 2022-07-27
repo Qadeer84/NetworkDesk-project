@@ -19,10 +19,10 @@ import SearchNetworkDeskcreen from './src/screen/SearchNetworkDeskScreen'
 import FoundNetworkDeskScreen from './src/screen/FoundNetworkDeskScreen'
 import MessageScreen from './src/screen/MessageScreen'
 import Navigation from './src/Navigation'
-
+import FirstNetworkDeskScreen from './src/screen/FirstNetworkDeskScreen'
 const App=() => { 
    return (
-    < Navigation />
+    < Navigation/>
      
     ) 
    }
