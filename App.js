@@ -22,7 +22,7 @@ import Navigation from './src/Navigation'
 import FirstNetworkDeskScreen from './src/screen/FirstNetworkDeskScreen'
 const App=() => { 
    return (
-    < FirstNetworkDeskScreen/>
+    < Navigation/>
      
     ) 
    }

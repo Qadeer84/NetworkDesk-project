@@ -3,7 +3,7 @@ import {View,Text,StyleSheet,Image,TextInput,TouchableOpacity ,onPress} from 're
 import {totalSize} from 'react-native-dimension'
 import {useNavigation} from '../../Navigation/index'
 const FirstNetworkDeskScreen= () =>{
-    
+    const navigation=useNavigation;
     const onNPressed = () =>{
         navigation.navigate('SecondNetworkDeskScreen')
     }
