@@ -34,14 +34,14 @@ const DATA=[
 ];
 const Item=({text})=>{
   return(
-  <View style={styles.text}> 
-  <Icon 
-          name="location"
-          type="evilicon"
-          style={{marginRight:totalSize(1)}}
-          />
-  <Text>{text}</Text>
-  </View>
+        <View style={styles.text}> 
+              <Icon 
+                  name="location"
+                  type="evilicon"
+                  style={{marginRight:totalSize(1)}}
+                    />
+                <Text>{text}</Text>
+              </View>
   )
 }
 const AreaAddYourServiceScreen= () =>{
@@ -53,42 +53,38 @@ const AreaAddYourServiceScreen= () =>{
   const renderItem=({item})=>(
     <Item text={item.text}/>
   );
- 
-  
 return(
     <View style={{flex:1}}>
-    <View style={{flex:1,backgroundColor:'white'}}>
-        <View style={{flexDirection:'row'}}>
-         <TouchableOpacity>
-            <Icon 
-            name='chevron-left'
-            type='feather'
-             color={'black'}   
-             style={{alignItems:'flex-start',marginLeft:totalSize(2),marginTop:totalSize(4)}}
-             />
-           </TouchableOpacity>
-            <Text style={{marginTop:height(5),alignItems:'center',marginLeft:totalSize(10),fontWeight:'bold'}}>Add your service areas </Text>
-            </View>
-            <View style={{alignItems:'center',marginTop:height(5)}}>
-          <View style={{width:'90%',height:40,borderRadius:totalSize(1),borderWidth:1,borderColor:'grey',flexDirection:'row',alignItems:'center'}}>
-          <Icon
-          name='search'
-          type='feather'
-          style={{margin:7}}
-          />
-          <Text>Search</Text>
-          </View>
-          </View>
-          <View style={{borderBottomWidth:1,marginTop:height(3),borderBottomColor:'grey'}}/>
-          <View style={styles.container}> 
-              <FlatList
-                data = {DATA}
-                renderItem={renderItem}
-                keyExtractor={item=> item.id}
-                  />
+           <View style={{flex:1,backgroundColor:'white'}}>
+              <View style={{flexDirection:'row'}}>
+                <TouchableOpacity>
+                  <Icon 
+                      name='chevron-left'
+                       type='feather'
+                       color={'black'}   
+                          style={{alignItems:'flex-start',marginLeft:totalSize(2),marginTop:totalSize(4)}}
+                            />
+                  </TouchableOpacity>
+                     <Text style={{marginTop:height(5),alignItems:'center',marginLeft:totalSize(10),fontWeight:'bold'}}>Add your service areas </Text>
+                      </View>
+                      <View style={{alignItems:'center',marginTop:height(5)}}>
+                     <View style={{width:'90%',height:40,borderRadius:totalSize(1),borderWidth:1,borderColor:'grey',flexDirection:'row',alignItems:'center'}}>
+                      <Icon
+                        name='search'
+                        type='feather'
+                        style={{margin:7}}
+                         />
+                       <Text>Search</Text>
+                       </View>
+                      </View>
+                     <View style={{borderBottomWidth:1,marginTop:height(3),borderBottomColor:'grey'}}/>
+                      <View styl e={styles.container}> 
+                   <FlatList
+                        data = {DATA}
+                        renderItem={renderItem}
+                        keyExtractor={item=> item.id}
+                          />
                 </View>
-               
-
     </View>
  </View>
 )
@@ -103,7 +99,6 @@ const styles=StyleSheet.create({
       paddingVertical:14,
       borderBottomWidth:1,
       borderBottomColor:'grey',
-      
     }
 })
 export default AreaAddYourServiceScreen

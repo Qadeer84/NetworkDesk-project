@@ -19,9 +19,9 @@ const DATA=[
 ];
 const Item=({text})=>{
   return(
-  <View style={styles.text}> 
-  <Text>{text}</Text>
-  </View>
+      <View style={styles.text}> 
+        <Text>{text}</Text>
+     </View>
   )
 }
 const AreaExpertiseScreen= () =>{
@@ -35,40 +35,40 @@ const AreaExpertiseScreen= () =>{
   );
 return(
     <View style={{flex:1}}>
-    <View style={{flex:1,backgroundColor:'white'}}>
-        <View style={{flexDirection:'row'}}>
-         <TouchableOpacity>
-            <Icon 
-            name='chevron-left'
-            type='feather'
-             color={'black'}   
-             style={{alignItems:'flex-start',marginLeft:totalSize(2),marginTop:totalSize(4)}}
-             />
-           </TouchableOpacity>
-            <Text style={{marginTop:height(5),alignItems:'center',marginLeft:totalSize(10),fontWeight:'bold'}}>Area Of Expertise </Text>
-            </View>
-            <View style={{alignItems:'center',marginTop:height(5)}}>
-          <View style={{width:'90%',height:40,borderRadius:totalSize(1),borderWidth:1,borderColor:'grey',flexDirection:'row',alignItems:'center'}}>
-          <Icon
-          name='search'
-          type='feather'
-          style={{margin:7}}
-          />
-          <Text>Search</Text>
-          </View>
-          </View>
-          <View style={{borderBottomWidth:1,marginTop:height(3),borderBottomColor:'grey'}}/>
-          <View style={styles.container}> 
-              <FlatList
-                data = {DATA}
-                renderItem={renderItem}
-                keyExtractor={item=> item.id}
-                  />
+               <View style={{flex:1,backgroundColor:'white'}}>
+                   <View style={{flexDirection:'row'}}>
+                 <TouchableOpacity>
+                   <Icon 
+                    name='chevron-left'
+                    type='feather'
+                      color={'black'}   
+                      style={{alignItems:'flex-start',marginLeft:totalSize(2),marginTop:totalSize(4)}}
+                       />
+                    </TouchableOpacity>
+                    <Text style={{marginTop:height(5),alignItems:'center',marginLeft:totalSize(10),fontWeight:'bold'}}>Area Of Expertise </Text>
+                    </View>
+                    <View style={{alignItems:'center',marginTop:height(5)}}>
+                   <View style={{width:'90%',height:40,borderRadius:totalSize(1),borderWidth:1,borderColor:'grey',flexDirection:'row',alignItems:'center'}}>
+                   <Icon
+                     name='search'
+                     type='feather'
+                     style={{margin:7}}
+                      />
+                    <Text>Search</Text>
+                    </View>
+                   </View>
+                  <View sty le={{borderBottomWidth:1,marginTop:height(3),borderBottomColor:'grey'}}/>
+                   <View style={styles.container}> 
+                   <FlatList
+                       data = {DATA}
+                       renderItem={renderItem}
+                        keyExtractor={item=> item.id}
+                        />
                 </View>
-               <View style={{flexDirection:'row',alignItems:'center',marginLeft:totalSize(2),marginBottom:height(20)}}>
+                     <View style={{flexDirection:'row',alignItems:'center',marginLeft:totalSize(2),marginBottom:height(20)}}>
                 <Text style={{color:'black'}}>Can't find your Expertise?</Text>
                 <AddExpButton text={'Add  Expertis'} onPress={toggleModal} />
-               </View>
+                 </View>
                    <View >
                   <Modal isVisible={isModalVisible}>
                   <View style={{ flex: 1,backgroundColor:'white' ,marginTop:totalSize(50),borderTopLeftRadius:20,borderTopRightRadius:20}}>
@@ -84,7 +84,6 @@ return(
         </View>
       </Modal>
     </View>
-
     </View>
  </View>
 )
@@ -99,7 +98,6 @@ const styles=StyleSheet.create({
       paddingVertical:14,
       borderBottomWidth:1,
       borderBottomColor:'grey',
-      
     }
 })
 export default AreaExpertiseScreen

@@ -4,6 +4,7 @@ import {height,width,totalSize} from 'react-native-dimension'
 import { Icon } from 'react-native-elements'
 import { Spacer } from '../../components/spacers/index'
 import { ColoredButton, ResendButton } from '../../components/buttons'
+import { useNavigation } from '@react-navigation/native';
 const DATA=[
     {id:1,text:'John Doe '},
     {id:2,text:'John Doe'},
@@ -30,18 +31,21 @@ const DATA=[
              size={totalSize(5)}
              style={{marginRight:width(1)}}
             />
-        
-        <Text style={{color:'black'}}>{text}</Text>
-        <Icon
-        name='adduser'
-        type='antdesign'
-        style={{marginLeft:totalSize(27)}}
-        color={'blue'}
-        />
+            <Text style={{color:'black'}}>{text}</Text>
+            <Icon
+               name='adduser'
+               type='antdesign'
+               style={{marginLeft:totalSize(27)}}
+                color={'blue'}
+                 />
         </View>
         )
       }
 const FoundNetworkDeskScreen=()=>{
+  const navigation = useNavigation();
+  const onBackPressed = () =>{
+      navigation.navigate('SearchNetworkDeskcreen')   
+  }
     const renderItem=({item})=>(
         <Item text={item.text}/>
       );
@@ -49,7 +53,7 @@ const FoundNetworkDeskScreen=()=>{
         <View style={{flex:1}}>
           <View style={{flex:1,backgroundColor:'white'}}>
         <View style={{flexDirection:'row',alignItems:'center',marginTop:height(5),marginLeft:totalSize(1)}}>
-         <TouchableOpacity>
+         <TouchableOpacity onPress={()=>onBackPressed()}>
             <Icon 
             name='chevron-left'
             type='feather'
@@ -93,9 +97,7 @@ const FoundNetworkDeskScreen=()=>{
                   />
                 </View>
           </View>
-          
           </View>
-          
     )
 }
 const styles=StyleSheet.create({

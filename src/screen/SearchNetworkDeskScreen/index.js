@@ -4,6 +4,7 @@ import {height,width,totalSize} from 'react-native-dimension'
 import { Icon } from 'react-native-elements'
 import { Spacer } from '../../components/spacers/index'
 import { ColoredButton, ResendButton } from '../../components/buttons'
+import { useNavigation } from '@react-navigation/native';
 const DATA=[
     {id:1,text:'John Doe '},
     {id:2,text:'John Doe'},
@@ -11,7 +12,6 @@ const DATA=[
     {id:4,text:'John Doe'},
     {id:5,text:'John Doe'},
     {id:6,text:'John Doe'},
-
     ];
     const Item=({text})=>{
         return(
@@ -33,6 +33,14 @@ const DATA=[
         )
       }
 const SearchNetworkDeskcreen=()=>{
+  const navigation = useNavigation();
+  const onsearchPressed = () =>{
+      navigation.navigate('FoundNetworkDeskScreen')   
+  }
+  const onBackPressed = () =>{
+    navigation.navigate('MainHomeScreen')   
+}
+  
     const renderItem=({item})=>(
         <Item text={item.text}/>
       );
@@ -40,7 +48,7 @@ const SearchNetworkDeskcreen=()=>{
         <View style={{flex:1}}>
     <View style={{flex:1,backgroundColor:'white'}}>
         <View style={{flexDirection:'row',alignItems:'center',marginTop:height(5),marginLeft:totalSize(1)}}>
-         <TouchableOpacity>
+         <TouchableOpacity onPress={()=>onBackPressed()}>
             <Icon 
             name='chevron-left'
             type='feather'
@@ -48,7 +56,7 @@ const SearchNetworkDeskcreen=()=>{
              style={{alignItems:'flex-start',marginLeft:totalSize(2)}}
              />
            </TouchableOpacity>
-           <TouchableOpacity>
+           <TouchableOpacity onPress={()=>onsearchPressed()}>
            <View style={{width:'100%',height:40,borderRadius:totalSize(1),borderWidth:1,borderColor:'grey',flexDirection:'row',alignItems:'center',marginLeft:totalSize(2)}}>
           <Icon
           name='search'

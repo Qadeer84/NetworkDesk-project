@@ -5,10 +5,18 @@ import { Icon } from 'react-native-elements'
 import { BackButton, NextButton,  } from '../../components/buttons'
 import { Spacer } from '../../components/spacers'
 import { BorderedTextinput, ColoredTextinput } from '../../components/textinputs'
-const  HelloNextScreen=() =>{
+import { useNavigation } from '@react-navigation/native';
+const  BusinessNextScreen=() =>{
+  const navigation = useNavigation();
+  const onNextPressed = () =>{
+      navigation.navigate('AddServiceScreen')   
+  }
+  const onBackPressed = () =>{
+    navigation.navigate('HelloNextScreen')   
+}
     return(
         <ScrollView showsVerticalScrollIndicator={true}>
-        <View style={{flex:1}}>
+           <View style={{flex:1}}>
             <Spacer height={totalSize(6)}/>
             <Text style={{fontSize:totalSize(2.4),fontWeight:'bold',marginLeft:totalSize(2)}}>Please tell us a little more {'\n'}about your business </Text>
             <Spacer height={totalSize(3)}/>
@@ -38,13 +46,12 @@ const  HelloNextScreen=() =>{
                      /> 
                  </TouchableOpacity>}/>
                   <View style={{flexDirection:'row',marginTop:totalSize(10),marginHorizontal:totalSize(1),marginBottom:totalSize(10)}}>
-                  <BackButton text={'BACK'}/>
-                  <NextButton text={'NEXT'}/>
-                  
+                  <BackButton text={'BACK'} onPress={()=>onBackPressed()}/>
+                  <NextButton text={'NEXT'} onPress={()=>onNextPressed()}/>
                   </View>
                 </View>
-            </View>
+                </View>
             </ScrollView>
     )
 }
-export default HelloNextScreen
+export default BusinessNextScreen

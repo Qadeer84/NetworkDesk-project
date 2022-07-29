@@ -10,9 +10,9 @@ export function ColoredButton({text,onPress}) {
     )
 }
 
-export function SimpleButton({text}) {
+export function SimpleButton({text,onPress}) {
     return(
-<TouchableOpacity style={styles.joinbutton}>
+<TouchableOpacity onPress={onPress} style={styles.joinbutton}>
             <Text style={styles.joinbuttonText} >{text}</Text>
           </TouchableOpacity>
           )

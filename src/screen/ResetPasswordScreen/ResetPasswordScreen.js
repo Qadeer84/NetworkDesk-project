@@ -8,19 +8,21 @@ import { ColoredButton } from '../../components/buttons'
 import { SimpleButton } from '../../components/buttons'
 import { ColoredTextinput } from '../../components/textinputs/index'
 import Forgotpw from '../../assets/Images/forgotpasswordpic.png'
+import { useNavigation } from '@react-navigation/native';
 const ResetPassword= () =>{
     const [isModalVisible, setModalVisible] = useState(false);
-
   const toggleModal = () => {
     setModalVisible(!isModalVisible);
   };
+  const navigation = useNavigation();
+  const onBackPressed = () =>{
+    navigation.navigate('LoginScreen')   
+}
 return(
     <ScrollView showsVerticalScrollIndicator={false}>
     <View style={{flex:1,backgroundColor:'white'}}>
-   
-       
         <View style={{flexDirection:'row'}}>
-    <TouchableOpacity>
+    <TouchableOpacity onPress={()=>onBackPressed()}>
     <Icon 
        name='chevron-left'
        type='feather'

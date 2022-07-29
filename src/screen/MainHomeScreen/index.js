@@ -6,12 +6,20 @@ import { Spacer } from '../../components/spacers/index'
 import Pic from '../../assets/Images/housepic.jpg'
 import Modal from "react-native-modal";
 import { ColoredButton, ResendButton, SendButton } from '../../components/buttons'
+import { useNavigation } from '@react-navigation/native';
 const MainHomeScreen=()=>{
   const [isModalVisible, setModalVisible] = useState(false);
-
   const toggleModal = () => {
     setModalVisible(!isModalVisible);
   };
+  const navigation = useNavigation();
+  const onsearchPressed = () =>{
+      navigation.navigate('SearchNetworkDeskcreen')   
+  }
+  
+  const onmessagePressed = () =>{
+      navigation.navigate('MessageScreen')   
+  }
     return(
         <View style={{flex:1,backgroundColor:'white'}}>
          <View style={{flexDirection:'row',alignItems:'center',marginTop:height(5),marginLeft:width(6)}}>
@@ -23,14 +31,14 @@ const MainHomeScreen=()=>{
             />
             </TouchableOpacity>
             <Text style={{marginLeft:totalSize(2),fontWeight:'bold',color:'black',fontSize:totalSize(3)}}>Network<Text style={{fontWeight:'normal'}}>Desk</Text></Text>
-            <TouchableOpacity>
+            <TouchableOpacity onPress={()=>onsearchPressed()}>
             <Icon 
             name='search'
             type='feather'
             style={{marginLeft:totalSize(8)}}
             />
             </TouchableOpacity>
-          <TouchableOpacity>
+          <TouchableOpacity onPress={()=>onmessagePressed()}>
           <Icon 
             name='message-square'
             type='feather'
@@ -176,8 +184,8 @@ const MainHomeScreen=()=>{
                      <Text style={{fontWeight:'bold',marginTop:height(5)}}>feedbeck</Text>
                      <Text style={{fontWeight:'bold',color:'red',marginTop:height(32)}}>Logout</Text>
                      </View>
-        </View>
-      </Modal>
+                    </View>
+                   </Modal>
           </View>
     )
 }
@@ -186,8 +194,6 @@ const styles=StyleSheet.create({
         marginTop:height(4),
         alignSelf:'center',
         width:'100%'
-        
-        
     }
 })
 export default MainHomeScreen

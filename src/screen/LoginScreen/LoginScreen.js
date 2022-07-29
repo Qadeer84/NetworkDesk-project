@@ -8,16 +8,28 @@ import { Spacer } from '../../components/spacers/index'
 import { ColoredButton } from '../../components/buttons'
 import { SimpleButton } from '../../components/buttons'
 import styles from './styles'
+import { useNavigation } from '@react-navigation/native';
 const LoginScreen= () =>{
   const [password, setPassword] = useState('')
   const[passwordHidden, setPasswordHidden] = useState(true)
-
-
+  const navigation = useNavigation();
+  const onLoginPressed = () =>{
+      navigation.navigate('MainHomeScreen')   
+  }
+  const onjoinPressed = () =>{
+    navigation.navigate('RegisterScreen')
+    
+}
+const onforgotPressed = () =>{
+  navigation.navigate('ResetPasswordScreen')   
+}
+  const onBackPressed = () =>{
+    navigation.navigate('LoginWithEmailScreen')   
+}
 return(
     <ScrollView showsVerticalScrollIndicator={false}>
-
     <View style={{flex:1,backgroundColor:'white'}}>
-    <TouchableOpacity>
+    <TouchableOpacity onPress={()=>onBackPressed()}>
     <Icon 
        name='chevron-left'
        type='feather'
@@ -47,11 +59,11 @@ return(
           /> }
           secureTextEntry={passwordHidden}
         />
-  <TouchableOpacity>
+      <TouchableOpacity onPress={()=>onforgotPressed()}>
      <Text style={{ flexDirection: 'row', alignSelf: 'flex-end', marginTop: 8, color: 'blue',marginEnd:30 }}>Forgot password?</Text>
      </TouchableOpacity>
      <ColoredButton
-     text={'LOGIN'}
+     text={'LOGIN'} onPress={()=>onLoginPressed()}
      />
        <Text style={{marginTop:height(3),alignSelf:'center'}}>Or continue with </Text>
        <View style={{marginTop:height(4),flexDirection:'row',justifyContent:'space-evenly'}}>
@@ -86,12 +98,11 @@ return(
        <Text style={{marginTop:height(4),alignSelf:'center'}}>Dont't have an account? </Text>
      
        <SimpleButton
-       text={'JOIN NOW'}
+       text={'JOIN NOW'} onPress={()=>onjoinPressed()}
        />
          
        </View>
        </ScrollView>
 )
 }
-  
 export default LoginScreen

@@ -7,17 +7,21 @@ import Forgotpw from '../../assets/Images/forgotpasswordpic.png'
 import OTPInputView from '@twotalltotems/react-native-otp-input'
 import { Spacer } from '../../components/spacers/index'
 import { ColoredButton, ResendButton } from '../../components/buttons'
+import { useNavigation } from '@react-navigation/native';
 const VerifyCodeScreen= () =>{
     const [isModalVisible, setModalVisible] = useState(false);
-
   const toggleModal = () => {
     setModalVisible(!isModalVisible);
   };
+  const navigation = useNavigation();
+   const onBackPressed = () =>{
+       navigation.navigate('PhoneVerifyScreen')  
+   }
 return(
     <View style={{flex:1}}>
     <View style={{flex:1,backgroundColor:'white'}}>
         <View style={{flexDirection:'row'}}>
-    <TouchableOpacity>
+    <TouchableOpacity onPress={()=>onBackPressed()}>
     <Icon 
        name='chevron-left'
        type='feather'
@@ -74,7 +78,6 @@ const styles = StyleSheet.create({
       width: 30,
       height: 45
     },
-  
     underlineStyleBase: {
       width: 60,
       height: 45,

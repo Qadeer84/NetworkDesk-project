@@ -7,15 +7,23 @@ import { Spacer } from '../../components/spacers/index'
 import { ColoredButton } from '../../components/buttons'
 import { SimpleButton } from '../../components/buttons'
 import styles from './styles'
+import { useNavigation } from '@react-navigation/native';
 const RegisterScreen= () =>{
  const[passwordHidden, setPasswordHidden] = useState(true)
-   
+   const[password,setPassword]=useState(true);
+   const navigation = useNavigation();
+   const onBackPressed = () =>{
+       navigation.navigate('LoginScreen')   
+   }
+   const onRegisterPressed = () =>{
+    navigation.navigate('PhoneVerifyScreen')   
+}
 return(
   <ScrollView showsVerticalScrollIndicator={false}>
-
+    <View style={{flex:1}}/>
     <View style={{flex:1,backgroundColor:'white'}}>
         <View style={{flexDirection:'row'}}>
-    <TouchableOpacity>
+    <TouchableOpacity  onPress={()=>onBackPressed()}>
     <Icon 
        name='chevron-left'
        type='feather'
@@ -39,16 +47,18 @@ return(
         />
         <Spacer height={20}/>
         <ColoredTextinput
-        placeholder={'password'}
-        right={<Icon 
-          name={passwordHidden?'eye-off':'eye'}
-          type='ionicon'
-          color={'grey'}
-          onPress={() => { setPasswordHidden (!passwordHidden) }}
-          iconStyle={{marginRight:width(3)}}
-          /> }
-          secureTextEntry={passwordHidden}
-        />
+         placeholder={'password'}
+         onChangeText={text =>setPassword(text)}
+         value={password}
+         right={<Icon 
+           name={passwordHidden?'eye-off':'eye'}
+           type='ionicon'
+           color={passwordHidden? 'grey' : 'black'}
+           onPress={() => { setPasswordHidden (!passwordHidden) }}
+           iconStyle={{marginRight:width(2)}}
+           /> }
+           secureTextEntry={passwordHidden}
+         />
         
         <View style={{flexDirection:'row'}}>
          <TouchableOpacity>
@@ -62,10 +72,10 @@ return(
           <Text style={{marginLeft:totalSize(1),fontSize:totalSize(1.7)}}>By Clicking Register,you agree to NetworkDesk's {'\n'}<Text style={{color:'blue'}}>Users Agreement privcy policy</Text>and<Text style={{color:'blue'}}> Cookie policy.</Text></Text>
           </View>
           <ColoredButton
-          text={'REGISTER'}
+          text={'REGISTER'} onPress={()=>onRegisterPressed()}
           />
-        
        </View>
+       
        </ScrollView>
 )
 }

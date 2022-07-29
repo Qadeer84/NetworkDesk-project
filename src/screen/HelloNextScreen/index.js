@@ -4,6 +4,7 @@ import {height,width,totalSize} from 'react-native-dimension'
 import { Icon } from 'react-native-elements'
 import { ColoredButton } from '../../components/buttons'
 import { Spacer } from '../../components/spacers'
+import { useNavigation } from '@react-navigation/native';
 const DATA=[
     {id:1,text:'Real Estate Agent'},
     {id:2, text:'Mortgage specialist'},
@@ -22,6 +23,11 @@ const DATA=[
         )
       }
 const  HelloNextScreen=() =>{
+  const navigation = useNavigation();
+  const onNextPressed = () =>{
+      navigation.navigate('BusinessNextScreen')   
+  }
+
     const renderItem=({item})=>(
         <Item text={item.text}/>
       );
@@ -34,24 +40,23 @@ const  HelloNextScreen=() =>{
             <Spacer height={30}/>
             <Text style={{fontSize:totalSize(1.5),fontWeight:'bold',marginLeft:totalSize(2)}}>Please tell us,What is your profession?</Text>
             <View style={{borderBottomWidth:1,marginTop:height(3),borderBottomColor:'grey'}}/>
-          <View style={styles.container}> 
+              <View style={styles.container}> 
               <FlatList
                 data = {DATA}
                 renderItem={renderItem}
                 keyExtractor={item=> item.id}
                   />
                  <View style={{marginBottom:totalSize(5)}}>
-                   <ColoredButton text={'Next'}/>
+                   <ColoredButton text={'Next'} onPress={()=>onNextPressed()}
+                   />
                    </View>
                 </View>
-       
         </View>
     )
 }
 const styles=StyleSheet.create({
     container:{
       flex:1,
-      
     },
     text:{
       flexDirection:'row',
@@ -59,7 +64,6 @@ const styles=StyleSheet.create({
       paddingVertical:14,
       borderBottomWidth:1,
       borderBottomColor:'grey',
-      
     }
 })
 export default HelloNextScreen

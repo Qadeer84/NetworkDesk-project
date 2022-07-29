@@ -6,6 +6,7 @@ import Swipeout from 'react-native-swipeout'
 import { SwipeListView } from 'react-native-swipe-list-view';
 import { Spacer } from '../../components/spacers/index'
 import { ColoredButton, ResendButton } from '../../components/buttons'
+import { useNavigation } from '@react-navigation/native';
 const DATA=[
     {id:1,text:'John Doe                                                          2h ago \n Hi,how many of you guys the update listing?ca'},
     {id:2,text:'John Doe                                                          2h ago \n Hi,how many of you guys the update listing?ca'},
@@ -25,7 +26,6 @@ const DATA=[
           text: 'Menu'
         }
       ]
-      
     const Item=({text})=>{
         return(
             <Swipeout right={swipeoutBtns} style={styles.swipestyle}>
@@ -41,18 +41,21 @@ const DATA=[
         </Swipeout>
         )
       };
-      
-       
 const MessageScreen=()=>{
+  const navigation = useNavigation();
+  const onBackPressed = () =>{
+      navigation.navigate('MainHomeScreen')   
+  }
+
+
     const renderItem=({item})=>(
         <Item text={item.text}/>
       );
-      
     return(
         <View style={{flex:1}}>
         <View style={{flex:1,backgroundColor:'white'}}>
         <View style={{flexDirection:'row',alignItems:'center',marginTop:height(4)}}>
-         <TouchableOpacity>
+         <TouchableOpacity onPress={()=>onBackPressed()}>
             <Icon 
             name='chevron-left'
             type='feather'
@@ -87,7 +90,6 @@ const MessageScreen=()=>{
                 keyExtractor={item=> item.id}
                   />
                 </View>
-                
           </View>
           </View>
     )
@@ -95,7 +97,6 @@ const MessageScreen=()=>{
 const styles=StyleSheet.create({
     container:{
         flex:1,
-       
       },
       text:{
         fontWeight:'bold',
