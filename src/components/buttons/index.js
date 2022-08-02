@@ -24,16 +24,16 @@ export function FixButton({text}) {
         </View>
         )
 }
-export function BackButton({text}) {
+export function BackButton({text,onPress}) {
   return(
-<TouchableOpacity style={styles.Backbutton}>
+<TouchableOpacity onPress={onPress}  style={styles.Backbutton}>
           <Text style={styles.BackbuttonText} >{text}</Text>
         </TouchableOpacity>
         )
 }
-export function NextButton({text}) {
+export function NextButton({text,onPress}) {
   return(
-<TouchableOpacity style={styles.Nextbutton}>
+<TouchableOpacity onPress={onPress}  style={styles.Nextbutton}>
           <Text style={styles.NextbuttonText} >{text}</Text>
         </TouchableOpacity>
         )
@@ -52,9 +52,9 @@ export function AddExpButton({text,onPress}) {
         </TouchableOpacity>
         )
 }
-export function SkipButton({text}) {
+export function SkipButton({text,onPress}) {
   return(
-<TouchableOpacity  style={styles.skipbutton}>
+<TouchableOpacity onPress={onPress}  style={styles.skipbutton}>
           <Text style={styles.skipbuttonText} >{text}</Text>
         </TouchableOpacity>
         )

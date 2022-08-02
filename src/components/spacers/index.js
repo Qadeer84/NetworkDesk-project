@@ -29,3 +29,6 @@ export const Regular = ({ horizontal }) => {
         <Spacer height={defaultSize} width={horizontal ? defaultSize : null} />
     )
 }
+
+
+

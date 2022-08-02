@@ -4,7 +4,12 @@ import {height,width,totalSize} from 'react-native-dimension'
 import { Icon } from 'react-native-elements'
 import { Spacer } from '../../components/spacers/index'
 import { ColoredButton, ResendButton, SkipButton } from '../../components/buttons'
+import { useNavigation } from '@react-navigation/native';
 const AddProfilepicScreen=()=>{
+  const navigation = useNavigation();
+  const onskipPressed = () =>{
+      navigation.navigate('MainHomeScreen')   
+  }
     return(
         <View style={{flex:1}}>
               <View style={{backgroundColor:'grey',height:'20%',alignItems:'center',justifyContent:'center'}}>
@@ -22,7 +27,7 @@ const AddProfilepicScreen=()=>{
                    <Text style={{color:'black',fontSize:totalSize(2),marginLeft:totalSize(4),marginTop:height(4)}}>Tell us about brenna</Text>
                      <Text style={{color:'black',fontSize:totalSize(2),marginLeft:totalSize(4),marginTop:height(4)}}>Follow people may you know</Text>
                     <Spacer height={totalSize(25)}/>
-                     <SkipButton text={'SKIP FOR NOW'}/>
+                     <SkipButton text={'SKIP FOR NOW'} onPress={()=>onskipPressed()}/>
           </View>
     )
 }

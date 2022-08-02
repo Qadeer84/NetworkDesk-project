@@ -21,6 +21,7 @@ const PhoneVerifyScreen= () =>{
    const onContinuePressed = () =>{
     navigation.navigate('VerifyCodeScreen')   
 }
+
 return(
     <ScrollView showsVerticalScrollIndicator={false}>
     <View style={{flex:1,backgroundColor:'white'}}>
@@ -48,6 +49,7 @@ return(
         <ColoredButton 
        text={'VERIFY'} onPress={toggleModal}
        />
+       
        <View style={{ flex: 1 }}>
        <Modal isVisible={isModalVisible}>
         <View style={{ flex: 1,backgroundColor:'white' ,marginTop:totalSize(50),borderTopLeftRadius:20,borderTopRightRadius:20,alignItems:'center'}}>
@@ -63,12 +65,13 @@ return(
          <Spacer height={10}/>
           
           <ColoredButton 
-           text={'CONTINUE'} onPress={toggleModal} 
-            />
+           text={'CONTINUE'} onPress={toggleModal} onPress={()=>onContinuePressed()} />
+            
           
             </View>
             </Modal>
           </View>
+          
        </View>
        </ScrollView>
 )

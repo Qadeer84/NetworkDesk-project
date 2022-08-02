@@ -6,6 +6,7 @@ import { Spacer } from '../../components/spacers/index'
 import { ColoredButton, ResendButton } from '../../components/buttons'
 import Modal from "react-native-modal";
 import { ColoredTextinput } from '../../components/textinputs'
+import { useNavigation } from '@react-navigation/native';
 const DATA=[
 {id:1,text:'Residential sales'},
 {id:2, text:'Commercial sales'},
@@ -45,8 +46,15 @@ const Item=({text})=>{
   )
 }
 const AreaAddYourServiceScreen= () =>{
-  const [isModalVisible, setModalVisible] = useState(false);
+  const navigation = useNavigation();
+  const onBackPressed = () =>{
+      navigation.navigate('AddServiceScreen')   
+  }
+  const onsearchPressed = () =>{
+    navigation.navigate('AboutServiceScreen')   
+}
 
+  const [isModalVisible, setModalVisible] = useState(false);
   const toggleModal = () => {
     setModalVisible(!isModalVisible);
   };
@@ -57,7 +65,7 @@ return(
     <View style={{flex:1}}>
            <View style={{flex:1,backgroundColor:'white'}}>
               <View style={{flexDirection:'row'}}>
-                <TouchableOpacity>
+                <TouchableOpacity onPress={()=>onBackPressed()}>
                   <Icon 
                       name='chevron-left'
                        type='feather'
@@ -78,6 +86,7 @@ return(
                        </View>
                       </View>
                      <View style={{borderBottomWidth:1,marginTop:height(3),borderBottomColor:'grey'}}/>
+                      <TouchableOpacity onPress={()=>onsearchPressed()}>
                       <View styl e={styles.container}> 
                    <FlatList
                         data = {DATA}
@@ -85,6 +94,7 @@ return(
                         keyExtractor={item=> item.id}
                           />
                 </View>
+                </TouchableOpacity>
     </View>
  </View>
 )
