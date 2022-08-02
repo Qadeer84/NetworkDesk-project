@@ -1,32 +1,45 @@
 import React from 'react'
-import { StyleSheet, TextInput, View ,placeholder} from "react-native";
+import { StyleSheet, TextInput, View, placeholder,Text } from "react-native";
 import { height, totalSize, width } from "react-native-dimension";
 import { Icon } from 'react-native-elements';
-export function ColoredTextinput({placeholder,left,right}) {
-  
+import { Spacer } from '../spacers';
+export function ColoredTextinput({ placeholder, left, right, secureTextEntry, title }) {
+
     return (
-        <View style={[styles.textInputOne]}>
-            {left ? left:null}
-            <View style={{ flex: 1 }}>
-                <TextInput
-                    placeholder={placeholder}
-                    style={{
-                        fontSize: totalSize(1.75),
-                        fontWeight:'bold',
-                        paddingHorizontal: width(1),
-                        borderBottomWidth:0.9
-                    }} 
-                    
+        <View style={[styles.textInputOneMainContainer]}>
+            {
+                title ?
+                    <>
+                        <Text style={{ fontSize: totalSize(1.4), color: '#000000',fontWeight:'600' }}>{title}</Text>
+                        {/* <Spacer height={height(1)}/> */}
+                    </>
+                    :
+                    null
+            }
+            <View style={[styles.textInputOneSubContainer]}>
+                {left ? left : null}
+                <View style={{ flex: 1 }}>
+                    <TextInput
+                        placeholder={placeholder}
+                        style={{
+                            fontSize: totalSize(1.7),
+                            fontWeight: 'normal',
+                            // paddingHorizontal: 0,
+                            //borderBottomWidth:0.9
+                            height: height(6)
+                        }}
+                        secureTextEntry={secureTextEntry}
                     >
-                </TextInput>
+                    </TextInput>
+                </View>
+                {right ? right : null}
             </View>
-            {right ? right :null}
         </View>
-       
+
     )
 }
 
-export function BorderedTextinput({placeholder}) {
+export function BorderedTextinput({ placeholder }) {
     return (
         <View style={styles.textInputTwo}>
             <TextInput
@@ -35,30 +48,41 @@ export function BorderedTextinput({placeholder}) {
                     fontSize: totalSize(1.5),
                     fontWeight: 'bold',
                     backgroundColor: '#0000',
-                    
-                }} 
-               
-                >
-                 
+
+                }}
+
+            >
+
             </TextInput>
         </View>
     )
 }
 const styles = StyleSheet.create({
-    textInputOne: {
+    textInputOneMainContainer: {
         flex: 1,
-        backgroundColor: '#0000',
+        // backgroundColor: '#0000',
         marginHorizontal: width(5),
-        flexDirection: 'row',
-        alignItems: 'center',
+        // flexDirection: 'row',
+        // alignItems: 'center',
+        borderBottomWidth: 1,
+        borderBottomColor: 'gray',
     },
-    textInputTwo:{
+    textInputOneSubContainer: {
+        // flex: 1,
+        // backgroundColor: '#0000',
+        // marginHorizontal: width(5),
+        flexDirection: 'row',
+        alignItems: 'center',
+        // borderBottomWidth:1,
+        // borderBottomColor:'gray',
+    },
+    textInputTwo: {
         flex: 1,
         backgroundColor: '#0000',
         marginHorizontal: width(5),
         flexDirection: 'row',
         alignItems: 'center',
-        borderBottomWidth:0.8,
-        
+        borderBottomWidth: 0.8,
+
     }
 })
