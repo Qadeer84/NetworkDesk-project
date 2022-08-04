@@ -31,19 +31,19 @@ const PhoneVerifyScreen = () => {
               name='chevron-left'
               type='feather'
               color={'black'}
-              style={{ alignItems: 'flex-start', marginLeft: totalSize(2), marginTop: totalSize(4) }}
+              style={{ alignItems: 'flex-start', marginLeft:width(5), marginTop: height(5) }}
             />
           </TouchableOpacity>
-          <Text style={{ marginTop: height(5), alignItems: 'center', marginLeft: totalSize(10), fontWeight: 'bold' }}>Phone Verification</Text>
+          <Text style={{ marginTop: height(5), alignItems: 'center', marginLeft:width(18), fontWeight: '700',fontSize:totalSize(2.5) }}>Phone Verification</Text>
         </View>
         <Image source={Forgotpw}
           style={{ marginTop: height(2), alignSelf: 'center' }}
         />
 
-        <Text style={{ marginTop: height(5), marginLeft: totalSize(3), fontWeight: 'bold', fontSize: totalSize(2.5) }}>Enter  your phone number for Verification</Text>
+        <Text style={{ marginTop: height(5), marginLeft: width(5), fontWeight: 'bold', fontSize: totalSize(2.5),color:'black' }}>Enter  your phone number for Verification</Text>
 
         <ColoredTextinput
-          placeholder={'Phone Number'}
+          title={'Phone Number'}
         />
         <Spacer height={height(3)} />
         <ColoredButton
@@ -56,7 +56,7 @@ const PhoneVerifyScreen = () => {
           style={{margin:0}}
           onBackdropPress={toggleModal}
           >
-            <View style={{ flex: 1, backgroundColor: 'white', marginTop: height(60), borderTopLeftRadius: 20, borderTopRightRadius: 20, alignItems: 'center' }}>
+            <View style={{ flex: 1, backgroundColor: 'white', marginTop: height(55), borderTopLeftRadius: 20, borderTopRightRadius: 20, alignItems: 'center' }}>
               <Icon
                 name='check-circle'
                 type='feather'
@@ -64,9 +64,9 @@ const PhoneVerifyScreen = () => {
                 color={'green'}
                 style={{ marginTop: height(3) }}
               />
-                  <Spacer height={height(3)} />
+                  <Spacer height={height(2)} />
               <Text style={{ color: 'black', fontSize: totalSize(2.5), fontWeight: 'bold' }}>A verification code has been  {'\n'} {' '}sent to your phone number</Text>
-              <Spacer height={height(3)} />
+              <Spacer height={height(2)} />
 
               <ColoredButton
                 text={'CONTINUE'}

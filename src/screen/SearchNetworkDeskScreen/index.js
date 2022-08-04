@@ -5,6 +5,7 @@ import { Icon } from 'react-native-elements'
 import { Spacer } from '../../components/spacers/index'
 import { ColoredButton, ResendButton } from '../../components/buttons'
 import { useNavigation } from '@react-navigation/native';
+import styles from './styles'
 const DATA=[
     {id:1,text:'John Doe '},
     {id:2,text:'John Doe'},
@@ -27,7 +28,7 @@ const DATA=[
         type='antdesign'
         size={totalSize(2)}
         color={'grey'}
-        style={{marginLeft:totalSize(28)}}
+        style={{marginLeft:width(60)}}
         />
         </View>
         )
@@ -47,21 +48,21 @@ const SearchNetworkDeskcreen=()=>{
     return(
         <View style={{flex:1}}>
     <View style={{flex:1,backgroundColor:'white'}}>
-        <View style={{flexDirection:'row',alignItems:'center',marginTop:height(5),marginLeft:totalSize(1)}}>
+        <View style={{flexDirection:'row',alignItems:'center',marginTop:height(5),marginLeft:width(1)}}>
          <TouchableOpacity onPress={()=>onBackPressed()}>
             <Icon 
             name='chevron-left'
             type='feather'
              color={'black'}   
-             style={{alignItems:'flex-start',marginLeft:totalSize(2)}}
+             style={{alignItems:'flex-start',marginLeft:width(2)}}
              />
            </TouchableOpacity>
            <TouchableOpacity onPress={()=>onsearchPressed()}>
-           <View style={{width:'100%',height:40,borderRadius:totalSize(1),borderWidth:1,borderColor:'grey',flexDirection:'row',alignItems:'center',marginLeft:totalSize(2)}}>
+           <View style={{width:'100%',height:40,borderRadius:totalSize(1),borderWidth:1,borderColor:'grey',flexDirection:'row',alignItems:'center',marginLeft:width(2)}}>
           <Icon
           name='search'
           type='feather'
-          style={{marginLeft:totalSize(1)}}
+          style={{marginLeft:width(1)}}
           />
           <Text style={{fontSize:totalSize(2),marginLeft:width(2)}}>SearchNetworkDesk</Text>
           </View>
@@ -83,17 +84,4 @@ const SearchNetworkDeskcreen=()=>{
           
     )
 }
-const styles=StyleSheet.create({
-    container:{
-        flex:1,
-      },
-      text:{
-        flexDirection:'row',
-        alignItems:'center',
-        paddingHorizontal:20,
-        paddingVertical:14,
-        borderBottomWidth:1,
-        borderBottomColor:'grey',
-      }
-})
 export default SearchNetworkDeskcreen

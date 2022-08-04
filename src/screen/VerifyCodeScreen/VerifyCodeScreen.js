@@ -8,6 +8,7 @@ import OTPInputView from '@twotalltotems/react-native-otp-input'
 import { Spacer } from '../../components/spacers/index'
 import { ColoredButton, ResendButton } from '../../components/buttons'
 import { useNavigation } from '@react-navigation/native';
+import styles from './styles';
 const VerifyCodeScreen= () =>{
     const [isModalVisible, setModalVisible] = useState(false);
   const toggleModal = () => {
@@ -17,6 +18,9 @@ const VerifyCodeScreen= () =>{
    const onBackPressed = () =>{
        navigation.navigate('PhoneVerifyScreen')  
    }
+   const onDonePressed = () =>{
+    navigation.navigate('HelloNextScreen')  
+}
 return(
     <View style={{flex:1}}>
     <View style={{flex:1,backgroundColor:'white'}}>
@@ -26,17 +30,17 @@ return(
        name='chevron-left'
        type='feather'
        color={'black'}   
-       style={{alignItems:'flex-start',marginLeft:totalSize(2),marginTop:totalSize(4)}}
+       style={{alignItems:'flex-start',marginLeft:width(5),marginTop:height(5)}}
       />
        </TouchableOpacity>
-       <Text style={{marginTop:height(5),alignItems:'center',marginLeft:totalSize(15),fontWeight:'bold',fontSize:15}}>Verify</Text>
+       <Text style={{marginTop:height(5),alignItems:'center',marginLeft:width(30),fontWeight:'bold',fontSize:totalSize(2)}}>Verify</Text>
        </View>
        <Image source={Forgotpw}
        style={{marginTop:height(2),alignSelf:'center'}}
        />
-       <Text style={{marginTop:height(5),marginLeft:totalSize(3),fontWeight:'bold',fontSize:totalSize(2.5)}}>Enter the 4 digit verification code</Text>
+       <Text style={{color:'black',marginTop:height(5),marginLeft:totalSize(3),fontWeight:'bold',fontSize:totalSize(2.5)}}>Enter the 4 digit verification {'\n'}code</Text>
        <OTPInputView
-            style={{width: '80%', height: 200,alignSelf:'center'}}
+            style={{width: '80%', height:height(20),alignSelf:'center'}}
             pinCount={4}
             secureTextEntry
             autoFocusOnLoad
@@ -47,12 +51,15 @@ return(
              })}
         />
         <View style={{flexDirection:'row',alignItems:'center',justifyContent:'space-around'}}>
-        <Text style={{fontWeight:'bold'}}>Did't the received code yet?</Text>
+        <Text style={{fontWeight:'bold',marginLeft:width(3),color:'#101010'}}>Did't the received code yet?</Text>
        <ResendButton text={'Resend'} onPress={toggleModal}/>
        </View>
        <View style={{ flex: 1 }}>
-      <Modal isVisible={isModalVisible}>
-        <View style={{ flex: 1,backgroundColor:'white' ,marginTop:totalSize(50),borderTopLeftRadius:20,borderTopRightRadius:20,alignItems:'center'}}>
+      <Modal isVisible={isModalVisible}
+        style={{margin:0}}
+        onBackdropPress={toggleModal}
+      >
+        <View style={{ flex: 1,backgroundColor:'white' ,marginTop:height(55),borderTopLeftRadius:20,borderTopRightRadius:20,alignItems:'center'}}>
          <Icon
          name='check-circle'
          type='feather'
@@ -60,11 +67,17 @@ return(
          color={'green'}
          style={{marginTop:height(3)}}
          />
-          <Spacer height={10}/>
+          <Spacer height={12}/>
           <Text style={{color:'black',fontSize:totalSize(2.5),fontWeight:'bold'}}>A new verification code has {'\n'} {'  '}been send to your phone{'\n'}{'                 '} number </Text>
-         <Spacer height={10}/>
+         <Spacer height={15}/>
           <ColoredButton 
-       text={'DONE'} onPress={toggleModal}
+       text={'DONE'} onPress={
+         ()=>{
+          toggleModal()
+          onDonePressed
+         }
+
+       }
        />
         </View>
       </Modal>
@@ -73,16 +86,4 @@ return(
        </View>
 )
 }
-const styles = StyleSheet.create({
-    borderStyleBase: {
-      width: 30,
-      height: 45
-    },
-    underlineStyleBase: {
-      width: 60,
-      height: 45,
-      borderBottomWidth: 2,
-      borderWidth:0
-    },
-  });
 export default VerifyCodeScreen

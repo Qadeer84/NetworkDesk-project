@@ -104,11 +104,11 @@ const AppStackScreens = () => {
             <AppStack.Screen name="AddServiceScreen" component={AddServiceScreen} />
             <AppStack.Screen name="AddYourServiceScreen" component={AddYourServiceScreen} />
             <AppStack.Screen name="AboutServiceScreen" component={AboutServiceScreen} />
-            {/* <AppStack.Screen name="AddProfilepicScreen" component={AddProfilepicScreen}/> */}
-            {/* <AppStack.Screen name="MainHomeScreen" component={MainHomeScreen}/> */}
-            {/* <AppStack.Screen name="SearchNetworkDeskcreen" component={SearchNetworkDeskcreen}/> */}
+             <AppStack.Screen name="AddProfilepicScreen" component={AddProfilepicScreen}/>
+             <AppStack.Screen name="MainHomeScreen" component={MainHomeScreen}/> 
+             <AppStack.Screen name="SearchNetworkDeskcreen" component={SearchNetworkDeskcreen}/> 
             <AppStack.Screen name="FoundNetworkDeskScreen" component={FoundNetworkDeskScreen} />
-            {/* <AppStack.Screen name="MessageScreen" component={MessageScreen}/> */}
+             <AppStack.Screen name="MessageScreen" component={MessageScreen}/> 
         </AppStack.Navigator>
     )
 }
@@ -121,7 +121,6 @@ const Navigation = () => {
                 <MainStack.Screen name="app" component={AppStackScreens} />
             </MainStack.Navigator>
         </NavigationContainer>
-
     )
 }
 export default Navigation

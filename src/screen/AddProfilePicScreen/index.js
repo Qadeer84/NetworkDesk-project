@@ -20,12 +20,12 @@ const AddProfilepicScreen=()=>{
 
                    <Text style={{fontWeight:'bold'}}>Tab to change cover photo</Text>
                     </View>
-                   <Text style={{fontWeight:'bold',fontSize:totalSize(2),marginLeft:totalSize(2),marginTop:height(2)}}>Brenna Burns</Text>
-                   <Text style={{color:'black',fontSize:totalSize(1.5),marginLeft:totalSize(2),marginTop:height(1)}}>Real Estate Agent</Text>
-                   <Text style={{color:'grey',fontSize:totalSize(1.5),marginLeft:totalSize(2),marginTop:height(1)}}>Century 21 Energy Realty,For ST Jhon,BC,Canada</Text>
-                   <Text style={{color:'black',fontSize:totalSize(2),marginLeft:totalSize(4),marginTop:height(3)}}>Add aprofile picture cover photo</Text>
-                   <Text style={{color:'black',fontSize:totalSize(2),marginLeft:totalSize(4),marginTop:height(4)}}>Tell us about brenna</Text>
-                     <Text style={{color:'black',fontSize:totalSize(2),marginLeft:totalSize(4),marginTop:height(4)}}>Follow people may you know</Text>
+                   <Text style={{fontWeight:'bold',fontSize:totalSize(2),marginLeft:width(3),marginTop:height(2),color:'black'}}>Brenna Burns</Text>
+                   <Text style={{color:'black',fontSize:totalSize(1.5),marginLeft:width(3),marginTop:height(1)}}>Real Estate Agent</Text>
+                   <Text style={{color:'grey',fontSize:totalSize(1.5),marginLeft:width(3),marginTop:height(1)}}>Century 21 Energy Realty,For ST Jhon,BC,Canada</Text>
+                   <Text style={{color:'black',fontSize:totalSize(2),marginLeft:width(7),marginTop:height(3)}}>Add aprofile picture cover photo</Text>
+                   <Text style={{color:'black',fontSize:totalSize(2),marginLeft:width(7),marginTop:height(4)}}>Tell us about brenna</Text>
+                     <Text style={{color:'black',fontSize:totalSize(2),marginLeft:width(7),marginTop:height(4)}}>Follow people may you know</Text>
                     <Spacer height={totalSize(25)}/>
                      <SkipButton text={'SKIP FOR NOW'} onPress={()=>onskipPressed()}/>
           </View>

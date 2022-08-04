@@ -5,6 +5,7 @@ import { Icon } from 'react-native-elements'
 import { ColoredButton } from '../../components/buttons'
 import { Spacer } from '../../components/spacers'
 import { useNavigation } from '@react-navigation/native';
+import styles from './styles'
 const DATA=[
     {id:1,text:'Real Estate Agent'},
     {id:2, text:'Mortgage specialist'},
@@ -33,12 +34,12 @@ const  HelloNextScreen=() =>{
       );
     return(
         <View style={{flex:1,backgroundColor:'white'}}>
-            <Spacer height={50}/>
-            <Text style={{fontSize:totalSize(3),fontWeight:'bold',marginLeft:totalSize(2)}}>Hello,Brenna,</Text>
-            <Text style={{fontSize:totalSize(2),fontWeight:'bold',marginLeft:totalSize(2)}}>Welcome to NetworkDesk,</Text>
-            <Text style={{fontSize:totalSize(2),fontWeight:'bold',marginLeft:totalSize(2)}}>We're happy to have you!</Text>
-            <Spacer height={30}/>
-            <Text style={{fontSize:totalSize(1.5),fontWeight:'bold',marginLeft:totalSize(2)}}>Please tell us,What is your profession?</Text>
+            <Spacer height={totalSize(7)}/>
+            <Text style={{fontSize:totalSize(3),fontWeight:'bold',marginLeft:width(4)}}>Hello,Brenna,</Text>
+            <Text style={{fontSize:totalSize(2),fontWeight:'bold',marginLeft:width(4)}}>Welcome to NetworkDesk,</Text>
+            <Text style={{fontSize:totalSize(2),fontWeight:'bold',marginLeft:width(4)}}>We're happy to have you!</Text>
+            <Spacer height={totalSize(4)}/>
+            <Text style={{fontSize:totalSize(1.5),fontWeight:'bold',marginLeft:width(4)}}>Please tell us,What is your profession?</Text>
             <View style={{borderBottomWidth:1,marginTop:height(3),borderBottomColor:'grey'}}/>
               <View style={styles.container}> 
               <FlatList
@@ -46,7 +47,7 @@ const  HelloNextScreen=() =>{
                 renderItem={renderItem}
                 keyExtractor={item=> item.id}
                   />
-                 <View style={{marginBottom:totalSize(5)}}>
+                 <View style={{marginBottom:height(3)}}>
                    <ColoredButton text={'Next'} onPress={()=>onNextPressed()}
                    />
                    </View>
@@ -54,16 +55,5 @@ const  HelloNextScreen=() =>{
         </View>
     )
 }
-const styles=StyleSheet.create({
-    container:{
-      flex:1,
-    },
-    text:{
-      flexDirection:'row',
-      paddingHorizontal:20,
-      paddingVertical:14,
-      borderBottomWidth:1,
-      borderBottomColor:'grey',
-    }
-})
+   
 export default HelloNextScreen

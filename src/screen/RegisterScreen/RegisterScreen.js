@@ -6,7 +6,6 @@ import { ColoredTextinput } from '../../components/textinputs/index'
 import { Spacer } from '../../components/spacers/index'
 import { ColoredButton } from '../../components/buttons'
 import { SimpleButton } from '../../components/buttons'
-import styles from './styles'
 import { useNavigation } from '@react-navigation/native';
 const RegisterScreen = () => {
   const [passwordHidden, setPasswordHidden] = useState(true)
@@ -28,26 +27,25 @@ const RegisterScreen = () => {
               name='chevron-left'
               type='feather'
               color={'black'}
-              style={{ alignItems: 'flex-start', marginLeft: totalSize(2), marginTop: totalSize(4) }}
+              style={{ alignItems: 'flex-start', marginLeft:width(4), marginTop:height(5) }}
             />
           </TouchableOpacity>
-          <Text style={{ marginTop: height(5), alignItems: 'center', marginLeft: totalSize(15), fontWeight: 'bold', fontSize: 20 }}>Register</Text>
+          <Text style={{ marginTop: height(5), alignItems: 'center', marginLeft: width(30), fontWeight: 'bold', fontSize: 20 }}>Register</Text>
         </View>
-        <Text style={{ marginTop: height(5), marginLeft: totalSize(3), fontWeight: 'bold', fontSize: totalSize(2.5) }}>Enter  your phone number for Verification</Text>
-        <View style={{ flexDirection: 'row', justifyContent: 'space-evenly' }}>
+              <View style={{ flexDirection: 'row', justifyContent: 'space-evenly',marginTop:totalSize(3) }}>
           <ColoredTextinput
-            placeholder={'First Name'}
+            title={'First Name'}
           />
           <ColoredTextinput
-            placeholder={'Last Name'}
+            title={'Last Name'}
           />
         </View>
         <ColoredTextinput
-          placeholder={'Email'}
+          title={'Email'}
         />
         <Spacer height={20} />
         <ColoredTextinput
-          placeholder={'password'}
+          title={'Password'}
           onChangeText={text => setPassword(text)}
           value={password}
           right={<Icon
@@ -60,16 +58,16 @@ const RegisterScreen = () => {
           secureTextEntry={passwordHidden}
         />
 
-        <View style={{ flexDirection: 'row' }}>
+        <View style={{ flexDirection: 'row' ,marginTop:height(3)}}>
           <TouchableOpacity>
             <Icon
               name='checkcircle'
               type='antdesign'
               color={'blue'}
-              style={{ alignItems: 'flex-start', marginLeft: totalSize(3), marginTop: totalSize(1) }}
+              style={{ alignItems: 'flex-start', marginLeft:width(5),marginTop:height(1)}}
             />
           </TouchableOpacity>
-          <Text style={{ marginLeft: totalSize(1), fontSize: totalSize(1.7) }}>By Clicking Register,you agree to NetworkDesk's {'\n'}<Text style={{ color: 'blue' }}>Users Agreement privcy policy</Text>and<Text style={{ color: 'blue' }}> Cookie policy.</Text></Text>
+          <Text style={{ marginLeft:width(2), fontSize: totalSize(1.7) }}>By Clicking Register,you agree to NetworkDesk's {'\n'}<Text style={{ color: 'blue' }}>Users Agreement privcy policy</Text>and<Text style={{ color: 'blue' }}> Cookie policy.</Text></Text>
         </View>
         <ColoredButton
           text={'REGISTER'} onPress={() => onRegisterPressed()}

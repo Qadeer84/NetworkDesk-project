@@ -10,7 +10,7 @@ export function ColoredTextinput({ placeholder, left, right, secureTextEntry, ti
             {
                 title ?
                     <>
-                        <Text style={{ fontSize: totalSize(1.4), color: '#000000',fontWeight:'600' }}>{title}</Text>
+                        <Text style={{ fontSize: totalSize(1.4), color: '#444444',fontWeight:'600' }}>{title}</Text>
                         {/* <Spacer height={height(1)}/> */}
                     </>
                     :
@@ -60,6 +60,7 @@ export function BorderedTextinput({ placeholder }) {
 const styles = StyleSheet.create({
     textInputOneMainContainer: {
         flex: 1,
+        marginTop:height(3),
         // backgroundColor: '#0000',
         marginHorizontal: width(5),
         // flexDirection: 'row',

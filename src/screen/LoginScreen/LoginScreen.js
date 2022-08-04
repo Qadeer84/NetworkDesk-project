@@ -7,14 +7,13 @@ import { ColoredTextinput } from '../../components/textinputs/index'
 import { Spacer } from '../../components/spacers/index'
 import { ColoredButton } from '../../components/buttons'
 import { SimpleButton } from '../../components/buttons'
-import styles from './styles'
 import { useNavigation } from '@react-navigation/native';
 const LoginScreen = () => {
   const [password, setPassword] = useState('')
   const [passwordHidden, setPasswordHidden] = useState(true)
   const navigation = useNavigation();
   const onLoginPressed = () => {
-    // navigation.navigate('MainHomeScreen')
+    //navigation.navigate('MainHomeScreen')
     navigation.navigate('bottomTab')
   }
   const onjoinPressed = () => {
@@ -38,7 +37,7 @@ const LoginScreen = () => {
             style={{ alignItems: 'flex-start', marginLeft: totalSize(2), marginTop: totalSize(4) }}
           />
         </TouchableOpacity>
-        <View style={{ alignSelf: 'center', marginTop: height(10), width: totalSize(20), backgroundColor: 'black', borderRadius: 25, alignItems: 'center', justifyContent: 'center' }}>
+        <View style={{ alignSelf: 'center', marginTop: height(2), width: totalSize(20), backgroundColor: 'black', borderRadius: 25, alignItems: 'center', justifyContent: 'center' }}>
           <Text style={{ color: 'white', fontSize: totalSize(15), fontWeight: 'bold' }}>N</Text>
         </View>
         <Text style={{ alignSelf: 'center', color: 'black', fontSize: totalSize(3), fontWeight: 'bold', marginTop: 10 }}>Network<Text style={{ color: 'black', fontWeight: 'normal' }}>Desk</Text></Text>
@@ -47,7 +46,7 @@ const LoginScreen = () => {
           title={'Email'}
         //placeholder={'Email'}
         />
-        <Spacer height={20} />
+        <Spacer height={height(3)} />
         <ColoredTextinput
           title={'Password'}
           // placeholder={'password'}
@@ -64,9 +63,9 @@ const LoginScreen = () => {
         />
         <Spacer height={height(2)}/>
         <TouchableOpacity onPress={() => onforgotPressed()}>
-          <Text style={{ flexDirection: 'row', alignSelf: 'flex-end', marginTop: 8, color: 'blue', marginEnd: 30 }}>Forgot password?</Text>
+          <Text style={{ flexDirection: 'row', alignSelf: 'flex-end', marginTop: height(1), color: '#0072EF', marginEnd:width(4) }}>Forgot password?</Text>
         </TouchableOpacity>
-       <Spacer height={height(3)}/>
+       <Spacer height={height(1)}/>
         <ColoredButton
           text={'LOGIN'} onPress={() => onLoginPressed()}
         />
@@ -75,31 +74,30 @@ const LoginScreen = () => {
           <Icon
             name='facebook'
             type='Feather'
-            size={30}
+            size={totalSize(3.5)}
             color='blue'
           />
           <Icon
             name='google'
             type='antdesign'
-            size={30}
+            size={totalSize(3.5)}
             color='green'
 
           />
           <Icon
             name='instagram'
             type='antdesign'
-            size={30}
+            size={totalSize(3.5)}
             color='red'
 
           />
           <Icon
             name='linkedin-square'
             type='antdesign'
-            size={30}
+            size={totalSize(3.5)}
             color='blue'
           />
         </View>
-
         <Text style={{ marginTop: height(4), alignSelf: 'center' }}>Dont't have an account? </Text>
 
         <SimpleButton

@@ -39,13 +39,13 @@ const Item=({text})=>{
               <Icon 
                   name="location"
                   type="evilicon"
-                  style={{marginRight:totalSize(1)}}
+                  style={{marginRight:width(1)}}
                     />
                 <Text>{text}</Text>
               </View>
   )
 }
-const AreaAddYourServiceScreen= () =>{
+const AddYourServiceScreen= () =>{
   const navigation = useNavigation();
   const onBackPressed = () =>{
       navigation.navigate('AddServiceScreen')   
@@ -70,17 +70,17 @@ return(
                       name='chevron-left'
                        type='feather'
                        color={'black'}   
-                          style={{alignItems:'flex-start',marginLeft:totalSize(2),marginTop:totalSize(4)}}
+                          style={{alignItems:'flex-start',marginLeft:width(4),marginTop:height(5)}}
                             />
                   </TouchableOpacity>
-                     <Text style={{marginTop:height(5),alignItems:'center',marginLeft:totalSize(10),fontWeight:'bold'}}>Add your service areas </Text>
+                     <Text style={{marginTop:height(5),alignItems:'center',marginLeft:width(15),fontWeight:'bold',fontSize:totalSize(2),color:'black'}}>Add your service areas </Text>
                       </View>
                       <View style={{alignItems:'center',marginTop:height(5)}}>
-                     <View style={{width:'90%',height:40,borderRadius:totalSize(1),borderWidth:1,borderColor:'grey',flexDirection:'row',alignItems:'center'}}>
+                     <View style={{width:'90%',height:40,borderRadius:totalSize(1),borderWidth:1,borderColor:'#E6E6E6',flexDirection:'row',alignItems:'center'}}>
                       <Icon
                         name='search'
                         type='feather'
-                        style={{margin:7}}
+                        style={{margin:totalSize(1)}}
                          />
                        <Text>Search</Text>
                        </View>
@@ -99,16 +99,4 @@ return(
  </View>
 )
 }
-const styles=StyleSheet.create({
-    container:{
-      flex:1,
-    },
-    text:{
-      flexDirection:'row',
-      paddingHorizontal:20,
-      paddingVertical:14,
-      borderBottomWidth:1,
-      borderBottomColor:'grey',
-    }
-})
-export default AreaAddYourServiceScreen
+export default AddYourServiceScreen

@@ -52,6 +52,13 @@ export function AddExpButton({ text, onPress }) {
     </TouchableOpacity>
   )
 }
+export function AddServiceButton({ text, onPress }) {
+  return (
+    <TouchableOpacity onPress={onPress} style={styles.AddServiceButton}>
+      <Text style={styles.AddServiceButtonText} >{text}</Text>
+    </TouchableOpacity>
+  )
+}
 export function SkipButton({ text, onPress }) {
   return (
     <TouchableOpacity onPress={onPress} style={styles.skipbutton}>
@@ -77,6 +84,7 @@ const styles = StyleSheet.create({
     backgroundColor: '#0072EF',
     //padding: totalSize(1.5),
     marginHorizontal: width(5),
+    marginTop:height(3),
     shadowColor: '#0072EF',
     shadowOffset: {
       width: 0,
@@ -87,69 +95,69 @@ const styles = StyleSheet.create({
     elevation: 15,
   },
   buttonText: {
-    fontSize: 18,
-    fontWeight: '700',
+    fontSize:totalSize(2),
+    fontWeight: '500',
     color: 'white',
   },
   joinbutton: {
     width: '90%',
-    marginTop: totalSize(2),
+    marginTop: height(2),
     alignItems: 'center',
     justifyContent: 'center',
     borderRadius: 15,
     backgroundColor: 'white',
     padding: totalSize(1.5),
     borderWidth: 1,
-    marginHorizontal: 20,
+    marginHorizontal: width(5),
     marginBottom: totalSize(5)
   },
   joinbuttonText: {
-    fontSize: 18,
-    fontWeight: 'normal',
+    fontSize:totalSize(2),
+    fontWeight: '500',
     color: 'black',
   },
   Backbutton: {
     width: '45%',
-    marginTop: 20,
+    marginTop:height(4),
     alignItems: 'center',
     justifyContent: 'center',
     borderRadius: 15,
-    backgroundColor: 'gray',
+    backgroundColor: '#EEEEEE',
     padding: totalSize(1.5),
     marginHorizontal: totalSize(1)
   },
   BackbuttonText: {
-    fontSize: 18,
-    fontWeight: 'normal',
-    color: 'white'
+    fontSize: totalSize(2),
+    fontWeight: '600',
+    color: '#222222'
   },
   Nextbutton: {
     width: '45%',
-    marginTop: 20,
+    marginTop: height(4),
     alignItems: 'center',
     justifyContent: 'center',
     borderRadius: 15,
-    backgroundColor: 'blue',
+    backgroundColor: '#0072EF',
     padding: totalSize(1.5),
     marginHorizontal: totalSize(1)
   },
   NextbuttonText: {
-    fontSize: 18,
-    fontWeight: 'normal',
+    fontSize: totalSize(2),
+    fontWeight: '600',
     color: 'white'
 
   },
   Resendbutton: {
     width: '18%',
-    height: 25,
+    height: height(3.3),
     alignItems: 'center',
     justifyContent: 'center',
     borderRadius: 7,
-    backgroundColor: 'blue',
-    marginLeft: totalSize(10)
+    backgroundColor: '#0072EF',
+    marginLeft:width(20)
   },
   ResendbuttonText: {
-    fontSize: 12,
+    fontSize:totalSize(1.5),
     fontWeight: 'normal',
     color: 'white',
   },
@@ -157,13 +165,13 @@ const styles = StyleSheet.create({
     width: '40%',
     alignItems: 'center',
     justifyContent: 'center',
-    borderRadius: 15,
-    backgroundColor: 'blue',
+    borderRadius: 10,
+    backgroundColor: '#0072EF',
     padding: totalSize(0.5),
-    marginHorizontal: totalSize(5)
+    marginHorizontal: width(10)
   },
   AddExpButtonText: {
-    fontSize: 15,
+    fontSize: totalSize(1.7),
     fontWeight: 'normal',
     color: 'white',
   },
@@ -173,13 +181,13 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     justifyContent: 'center',
     borderRadius: 15,
-    backgroundColor: 'grey',
+    backgroundColor: '#0F1A4833',
     padding: totalSize(1.5),
     marginHorizontal: 20
   },
   skipbuttonText: {
     fontSize: 18,
-    fontWeight: 'normal',
+    fontWeight: '600',
     color: 'black',
   },
   sendbutton: {
@@ -194,6 +202,20 @@ const styles = StyleSheet.create({
   },
   sendbuttonText: {
     fontSize: 18,
+    fontWeight: 'normal',
+    color: 'white',
+  },
+  AddServiceButton: {
+    width: '40%',
+    alignItems: 'center',
+    justifyContent: 'center',
+    borderRadius: 10,
+    backgroundColor: '#0072EF',
+    padding: totalSize(0.4),
+    marginHorizontal: width(4)
+  },
+  AddServiceButtonText: {
+    fontSize: totalSize(1.7),
     fontWeight: 'normal',
     color: 'white',
   },

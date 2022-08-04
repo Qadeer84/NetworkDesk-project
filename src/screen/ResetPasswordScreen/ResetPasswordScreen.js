@@ -14,7 +14,7 @@ const ResetPassword= () =>{
   const toggleModal = () => {
     setModalVisible(!isModalVisible);
   };
-  const navigation = useNavigation();
+  const navigation = useNavigation()
   const onBackPressed = () =>{
     navigation.navigate('LoginScreen')   
 }
@@ -27,37 +27,39 @@ return(
        name='chevron-left'
        type='feather'
        color={'black'}   
-       style={{alignItems:'flex-start',marginLeft:totalSize(2),marginTop:totalSize(4)}}
+       style={{alignItems:'flex-start',marginLeft:width(4),marginTop:height(5)}}
       />
        </TouchableOpacity>
-       <Text style={{marginTop:height(5),alignItems:'center',marginLeft:totalSize(10),fontWeight:'bold'}}>Reset Your Password</Text>
+       <Text style={{marginTop:height(5),alignItems:'center',marginLeft:width(20),fontWeight:'bold',fontSize:totalSize(2)}}>Reset Your Password</Text>
        </View>
        <Image source={Forgotpw}
        style={{marginTop:height(2),alignSelf:'center'}}
        />
-
-       <Text style={{marginTop:height(5),marginLeft:totalSize(3),fontWeight:'bold',fontSize:totalSize(2.5)}}>Enter your email to reset your password</Text>
+       <Text style={{marginTop:height(5),marginLeft:width(5),fontWeight:'bold',fontSize:totalSize(2.5)}}>Enter your email to reset your password</Text>
        <ColoredTextinput
-        placeholder={'Email'}
+          title={'Email'}
         />
-        <Spacer height={20}/>
        <ColoredButton 
        text={'RESET PASSWORD'} onPress={toggleModal}
        />
        </View>
        <View style={{ flex: 1 }}>
-      <Modal isVisible={isModalVisible}>
+      <Modal isVisible={isModalVisible}
+       style={{margin:0}}
+       onBackdropPress={toggleModal}
+        
+      >
         <View style={{ flex: 1,backgroundColor:'white' ,marginTop:totalSize(50),borderTopLeftRadius:20,borderTopRightRadius:20,alignItems:'center'}}>
          <Icon
          name='check-circle'
          type='feather'
-         size={50}
+         size={totalSize(7)}
          color={'green'}
          style={{marginTop:height(3)}}
          />
-          <Spacer height={10}/>
+          <Spacer height={height(2.5)}/>
           <Text style={{color:'black',fontSize:totalSize(2.5),fontWeight:'bold'}}>A link to reset your password {'\n'} {'      '}has been to your email</Text>
-         <Spacer height={10}/>
+         <Spacer height={height(3)}/>
           <ColoredButton 
        text={'BACK TO LOGIN'} onPress={toggleModal}
        />

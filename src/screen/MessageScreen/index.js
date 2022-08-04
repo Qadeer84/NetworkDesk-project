@@ -7,6 +7,7 @@ import { SwipeListView } from 'react-native-swipe-list-view';
 import { Spacer } from '../../components/spacers/index'
 import { ColoredButton, ResendButton } from '../../components/buttons'
 import { useNavigation } from '@react-navigation/native';
+import styles from './styles'
 const DATA=[
     {id:1,text:'John Doe                                                          2h ago \n Hi,how many of you guys the update listing?ca'},
     {id:2,text:'John Doe                                                          2h ago \n Hi,how many of you guys the update listing?ca'},
@@ -60,14 +61,14 @@ const MessageScreen=()=>{
             name='chevron-left'
             type='feather'
              color={'black'}   
-             style={{marginLeft:totalSize(2)}}
+             style={{marginLeft:width(4)}}
              />
            </TouchableOpacity>
-            <Text style={{marginLeft:totalSize(12),fontSize:totalSize(2.2),alignItems:'center',fontWeight:'bold'}}>Messages</Text>
+            <Text style={{marginLeft:width(28),fontSize:totalSize(2.2),alignItems:'center',fontWeight:'bold'}}>Messages</Text>
             <Icon
                  name='plus'
                  type='feather'
-                 style={{marginLeft:totalSize(12)}}
+                 style={{marginLeft:width(25)}}
              />
             
             </View>
@@ -76,7 +77,7 @@ const MessageScreen=()=>{
           <Icon
           name='search'
           type='feather'
-          style={{margin:7}}
+          style={{margin:totalSize(1)}}
           />
           <Text>Search</Text>
           </View>
@@ -94,20 +95,4 @@ const MessageScreen=()=>{
           </View>
     )
 }
-const styles=StyleSheet.create({
-    container:{
-        flex:1,
-      },
-      text:{
-        fontWeight:'bold',
-        flexDirection:'row',
-        paddingHorizontal:20,
-        paddingVertical:10,
-        borderBottomWidth:1,
-        borderBottomColor:'grey',
-      },
-      swipestyle:{
-        backgroundColor:'white'
-      }
-})
 export default MessageScreen

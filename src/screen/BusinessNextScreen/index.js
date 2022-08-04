@@ -18,34 +18,31 @@ const  BusinessNextScreen=() =>{
         <ScrollView showsVerticalScrollIndicator={true}>
            <View style={{flex:1}}>
             <Spacer height={totalSize(6)}/>
-            <Text style={{fontSize:totalSize(2.4),fontWeight:'bold',marginLeft:totalSize(2)}}>Please tell us a little more {'\n'}about your business </Text>
+            <Text style={{fontSize:totalSize(2.4),fontWeight:'bold',marginLeft:width(4),color:'black'}}>Please tell us a little more {'\n'}about your business </Text>
             <Spacer height={totalSize(3)}/>
-            <Text style={{fontSize:totalSize(1.8),color:'gray',fontWeight:'bold',marginLeft:totalSize(2)}}>So that togher we can create a customized {'\n'}network that workd for you.</Text>
-              <View style={{marginTop:totalSize(3)}}>
-               <BorderedTextinput
-                placeholder={'Company Name'}/>
-                 <Spacer height={totalSize(3)}/>
-                <BorderedTextinput
-                placeholder={'Brokerage Name'}/>
-                 <Spacer height={totalSize(3)}/>
-                 <BorderedTextinput
-                placeholder={'Brokerage Address'}/>
-                 <Spacer height={totalSize(3)}/>
-                 <BorderedTextinput
-                placeholder={'Brokerage Phone Number'}/>
-                <Spacer height={totalSize(3)}/>
-                 <ColoredTextinput
-                placeholder={'Area of Expertise'}
-                right={ 
-               <TouchableOpacity>
-                 <Icon 
-                      name={'chevron-down'}
-                      type='feather'
-                      color={'grey'}
-                      iconStyle={{marginRight:width(2)}}
-                     /> 
-                 </TouchableOpacity>}/>
-                  <View style={{flexDirection:'row',marginTop:totalSize(10),marginHorizontal:totalSize(1),marginBottom:totalSize(10)}}>
+            <Text style={{fontSize:totalSize(1.8),color:'#444444',fontWeight:'bold',marginLeft:totalSize(2)}}>So that togher we can create a customized {'\n'}network that workd for you.</Text>
+              <View style={{marginTop:height(2)}}>
+              <ColoredTextinput
+          title={'Email'}/>
+          <ColoredTextinput
+          title={'Brokerage Name'}/>
+           <ColoredTextinput
+          title={'Brokerage Address'}/>
+           <ColoredTextinput
+          title={'Brokerage Phone Number'}/>
+           <ColoredTextinput
+          title={'Area of Expertise'}
+          right={ 
+            <TouchableOpacity>
+              <Icon 
+                   name={'chevron-down'}
+                   type='feather'
+                   color={'grey'}
+                   iconStyle={{marginRight:width(2)}}
+                  /> 
+              </TouchableOpacity>}/>
+               
+                  <View style={{flexDirection:'row',marginTop:height(7),marginHorizontal:width(2),marginBottom:height(6)}}>
                   <BackButton text={'BACK'} onPress={()=>onBackPressed()}/>
                   <NextButton text={'NEXT'} onPress={()=>onNextPressed()}/>
                   </View>
@@ -53,5 +50,5 @@ const  BusinessNextScreen=() =>{
                 </View>
             </ScrollView>
     )
-}
+          }
 export default BusinessNextScreen
